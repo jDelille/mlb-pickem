@@ -1,0 +1,109 @@
+@import '../../styles/mixins.scss';
+.navbar {
+	height: 65px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	position: relative;
+	z-index: 9999;
+	padding: var(--padding);
+	.nav-content {
+		width: 1448px;
+		position: relative;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		@include laptop() {
+			width: 1248px;
+		}
+		@include macbook() {
+			max-width: 1100px;
+		}
+	}
+	.logo {
+		a {
+			font-size: 1rem;
+			display: flex;
+			align-items: center;
+			text-decoration: none;
+			gap: 0.5rem;
+			img {
+				max-width: 40px;
+			}
+		}
+	}
+	.links {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		width: 100%;
+		justify-content: flex-end;
+
+		@include phone() {
+			display: none;
+		}
+		.login-btn,
+		.logout-btn {
+			background: none;
+			border: none;
+			font-size: 1rem;
+			padding: 1rem;
+			cursor: pointer;
+			color: #0662c5;
+		}
+		.signup-btn {
+			background-color: #0662c5;
+			color: white;
+			padding: 0.5rem 1rem;
+			border-radius: 5px;
+			border: none;
+			&:hover {
+				background-color: darken($color: #0662c5, $amount: 6);
+				cursor: pointer;
+			}
+		}
+		li {
+			list-style-type: none;
+			a {
+				text-decoration: none;
+				padding: 0.75rem 1rem;
+				border-radius: 5px;
+				box-shadow: none;
+			}
+			a.active {
+			}
+		}
+
+		.pill {
+			min-width: 56px;
+			height: 27px;
+			border-radius: 25px;
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+			padding: 0 0.25rem;
+			.toggle-switch,
+			.toggle-switch-off {
+				background-color: #0662c5;
+				height: 20px;
+				width: 20px;
+				border-radius: 50%;
+				transition: all 200ms ease-in-out;
+			}
+			.toggle-switch-off {
+				transform: translate(28px);
+			}
+		}
+	}
+	.burger {
+		margin-left: auto;
+		font-size: 2rem;
+		align-items: center;
+		cursor: pointer;
+		display: none;
+		@include phone() {
+			display: flex;
+		}
+	}
+}

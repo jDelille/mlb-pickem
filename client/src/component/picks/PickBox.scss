@@ -1,0 +1,143 @@
+@import '../../styles/mixins.scss';
+
+.game-box {
+	width: 100%;
+	height: auto;
+	display: flex;
+	font-family: 'Roboto', sans-serif;
+	.game {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+		flex-direction: column;
+		flex-shrink: 0;
+		padding: 1rem 0;
+		border-top: var(--border);
+		border-bottom: var(--border);
+		@include phone() {
+			gap: 1rem;
+		}
+		.top {
+			width: 100%;
+			display: flex;
+			padding: 0 1rem;
+			input {
+				display: none;
+			}
+			.box {
+				height: 30px;
+				width: 40px;
+				display: flex;
+				align-items: center;
+				border-radius: 5px;
+				cursor: pointer;
+				color: var(--secondary-color-lighter);
+				flex-direction: column;
+				justify-content: center;
+				padding: 1.5rem 2rem;
+				@include phone() {
+					width: 15%;
+				}
+				&:hover {
+					box-shadow: none;
+					background-color: #0662c5;
+					border: none;
+				}
+			}
+			.highlight {
+				background: #0662c5;
+				color: black;
+			}
+			.no-pick {
+				background-color: #e2e2e4;
+				&:hover {
+					cursor: not-allowed;
+				}
+			}
+			.logo {
+				height: 100%;
+				max-height: 35px;
+				max-width: 30px;
+				min-width: 20px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				.team-logo {
+					max-height: 35px;
+					max-width: 30px;
+					min-width: 24px;
+				}
+			}
+			.game-time {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				width: 100%;
+				text-transform: uppercase;
+				color: lightslategray;
+				font-size: 0.8rem;
+				@include phone() {
+					// display: none;
+				}
+				.at {
+					margin-bottom: 1px;
+				}
+			}
+		}
+		.middle {
+			height: 30px;
+			width: 100%;
+			display: flex;
+			padding: 0 1rem;
+			.box {
+				width: fit-content;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0.5rem 0.9rem;
+				p {
+					color: lightslategray;
+					font-size: 0.8rem;
+				}
+			}
+			.space {
+				width: 100%;
+			}
+		}
+		.pitchers {
+			height: 20px;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			p {
+				font-size: 0.8rem;
+				color: lightslategray;
+			}
+		}
+
+		.abbr {
+			display: none;
+		}
+		.team-id {
+			height: 100%;
+			width: 55%;
+			.desktop-name {
+				font-size: 0.9rem;
+				@include phone() {
+					display: none;
+				}
+			}
+			.mobile-name {
+				display: none;
+				@include phone() {
+					display: flex;
+				}
+			}
+		}
+	}
+	.hide-pick-boxes {
+		display: none;
+	}
+}

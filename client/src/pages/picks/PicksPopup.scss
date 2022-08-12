@@ -1,0 +1,122 @@
+@import '../../styles/mixins.scss';
+
+.overlay {
+	background-color: #000;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	max-width: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0.6;
+}
+.popup-container {
+	border-radius: 3px;
+	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2);
+	background-color: var(--lighter-primary);
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 9999;
+	font-family: var(--secondaryFont);
+	background-color: #fff;
+	@include flexCol();
+	padding: 2rem;
+	justify-content: center;
+	width: 30vw;
+	height: 70vh;
+	transform: translate(120%, 15%);
+	.chosen-picks {
+		width: 100%;
+		height: 50%;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: flex-start;
+		p {
+			font-size: 1.2rem;
+		}
+		.popup-logo {
+			width: 40px;
+			height: 40px;
+		}
+	}
+	.btn-container-popup {
+		width: 100%;
+		height: 75px;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		gap: 1rem;
+		.edit-btn,
+		.save-btn {
+			width: 50%;
+			background-color: var(--secondary-color);
+			height: 50px;
+			border-radius: 5px;
+			color: white;
+			&:hover {
+				background-color: #127ddb;
+			}
+		}
+		.save-btn {
+			background-color: var(--accent);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			&:hover {
+				background-color: #1a9b49;
+			}
+		}
+	}
+}
+
+// PHONE SIZE
+@include phone {
+	.popup-container {
+		width: 100%;
+		left: 0;
+		height: 70vh;
+		transform: none;
+		top: 10vh;
+		.popup-content {
+			width: 100%;
+			.chosen-picks {
+				display: flex;
+				justify-content: flex-start;
+				overflow-x: scroll;
+				gap: 1rem;
+				margin: 2rem 0;
+				.popup-logo {
+					max-width: 60px;
+				}
+			}
+			.mobile-info {
+				display: block;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
+		}
+		.btn-container-popup {
+			height: 60px;
+			gap: 1rem;
+			.edit-btn,
+			.save-btn {
+				width: 50%;
+				background-color: var(--secondary-color);
+				height: 100%;
+				border-radius: 5px;
+			}
+			.save-btn {
+				background-color: var(--accent);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+	}
+}

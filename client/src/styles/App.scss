@@ -1,0 +1,39 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;700;800&family=Saira+Extra+Condensed:wght@600;700&display=swap');
+* {
+	margin: 0%;
+	padding: 0%;
+	box-sizing: border-box;
+	font-family: 'Figtree', sans-serif;
+}
+
+.App {
+	height: auto;
+	overflow-x: hidden;
+	.users {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	.btn {
+		// margin-left: auto;
+		background-color: #6795de;
+		color: white;
+		padding: 0.5rem 0.75rem;
+		border-radius: 3px;
+		border: none;
+		cursor: pointer;
+		&:hover {
+			background-color: darken($color: #6795de, $amount: 10);
+		}
+	}
+}
+
+input {
+	height: 50px;
+	padding: 1rem;
+	border-radius: 4px;
+	border: none;
+	font-size: 1.1rem;
+	border: 1px solid lightgray;
+}

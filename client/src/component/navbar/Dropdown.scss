@@ -1,0 +1,83 @@
+@import '../../styles/mixins.scss';
+
+.dropdown,
+.hide-dropdown {
+	position: absolute;
+	right: -2rem;
+	width: 100%;
+	height: 500px;
+	top: 53px;
+	display: none;
+	transition: all 200ms ease-in-out;
+	transform: translateX(0);
+	padding: 2rem 2.5rem;
+	display: none;
+	@include phone() {
+		display: flex;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		width: 100%;
+		position: relative;
+		gap: 1.5rem;
+		.ld-info {
+			color: gray;
+			margin-top: 10px;
+		}
+		.pill {
+			width: 100%;
+			height: 50px;
+			position: relative;
+			.toggle-switch,
+			.toggle-switch-off {
+				background-color: dodgerblue;
+				width: 50%;
+				height: 100%;
+				transition: all 200ms ease-in-out;
+			}
+			.toggle-switch-off {
+				margin-left: auto;
+			}
+		}
+		li {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			a {
+				text-decoration: none;
+				background-color: none;
+				font-size: 1.3rem;
+				&:hover {
+					color: #207cdf;
+				}
+			}
+			a.active {
+				background-color: none;
+			}
+		}
+		.auth-btn,
+		.logout-btn {
+			background: none;
+			border: none;
+			font-size: 1.3rem;
+			cursor: pointer;
+			&:hover {
+				color: #207cdf;
+			}
+		}
+		.signup-btn {
+			color: #25a35a;
+			&:hover {
+				color: #25a35a;
+			}
+		}
+	}
+}
+
+.hide-dropdown {
+	transform: translateX(100%);
+}

@@ -1,0 +1,26 @@
+.user-component {
+	width: 100%;
+	height: fit-content;
+	border-radius: 5px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	background: none;
+	font-size: 1.2rem;
+	.header {
+		.name {
+			font-weight: 600;
+			color: #0662c5;
+		}
+	}
+	.body {
+		.record {
+			color: lightslategray;
+			display: flex;
+			gap: 0.5rem;
+			align-items: center;
+			font-weight: 600;
+		}
+	}
+}

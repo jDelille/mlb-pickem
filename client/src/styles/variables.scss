@@ -1,0 +1,28 @@
+@import './mixins.scss';
+
+:root {
+	--primaryBG: #16171b;
+	--secondaryBG: #222327;
+	--navbarBG: #121216;
+	--text-color: #eeeeee;
+	--border: 1px solid #383d3f;
+	--padding: 0 6rem;
+}
+
+@include phone() {
+	:root {
+		--padding: 0 1rem;
+	}
+}
+
+@include laptop() {
+	:root {
+		--padding: 0 2rem;
+	}
+}
+
+@include xl() {
+	:root {
+		--padding: 0 16rem;
+	}
+}

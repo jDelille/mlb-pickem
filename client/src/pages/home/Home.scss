@@ -1,0 +1,160 @@
+@import '../../styles/mixins.scss';
+
+.homepage {
+	height: 100vh;
+	padding: var(--padding);
+	@include phone() {
+		overflow-x: hidden;
+	}
+	.home-content {
+		width: 1448px;
+		position: relative;
+		margin: 0 auto;
+		@include phone() {
+			max-width: 100%;
+			overflow-x: hidden;
+			display: flex;
+			height: 100vh;
+		}
+		@include laptop() {
+			width: 1248px;
+		}
+		@include macbook() {
+			width: 1140px;
+		}
+		.text {
+			@include phone() {
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+			}
+			h1 {
+				font-size: 97px;
+				line-height: 80px;
+				font-family: 'Sohne', Helvetica;
+				text-transform: uppercase;
+				margin-top: 107px;
+				max-width: 510px;
+				font-family: 'Saira Extra Condensed', sans-serif;
+				@include phone() {
+					width: 100%;
+
+					margin-top: -5rem;
+				}
+			}
+			h2 {
+				width: 45%;
+				font-size: 1.5rem;
+				font-weight: lighter;
+				display: flex;
+				align-items: center;
+				margin-top: 30px;
+				@include phone() {
+					width: 100%;
+				}
+			}
+			.btn-container {
+				display: flex;
+				justify-content: flex-start;
+				.btn {
+					margin-top: 40px;
+					font-size: 1.1rem;
+					padding: 1rem;
+					border-radius: 5px;
+					text-decoration: none;
+					@include phone() {
+						width: 100%;
+						margin-top: 30px;
+						margin-right: auto;
+					}
+				}
+			}
+		}
+
+		.images {
+			width: 40%;
+			margin-left: auto;
+			position: absolute;
+			right: 8rem;
+			top: 2rem;
+			@include phone() {
+				display: none;
+			}
+			.bar {
+				height: 80px;
+				display: flex;
+				overflow: hidden;
+				padding: 1rem 0;
+				max-width: 500px;
+				border-radius: 5px;
+				.mobile {
+					display: none;
+				}
+				@include phone {
+					.name {
+						display: none;
+					}
+					.mobile {
+						display: block;
+						font-weight: 600;
+						font-size: 1.2rem;
+					}
+				}
+
+				.left,
+				.right {
+					width: 35%;
+					display: flex;
+					align-items: center;
+					img {
+						max-width: 50px;
+						position: relative;
+						left: -8px;
+					}
+				}
+				.right {
+					justify-content: flex-end;
+					img {
+						left: 8px;
+						min-width: 50px;
+					}
+				}
+				.middle {
+					width: 30%;
+					display: flex;
+					align-items: center;
+					flex-direction: column;
+					justify-content: center;
+					h1 {
+						font-size: 1.1rem;
+					}
+					p {
+						font-size: 0.9rem;
+						color: gray;
+					}
+				}
+			}
+			.bar-2 {
+				position: relative;
+				margin-top: 08px;
+				left: 127px;
+				@include phone() {
+					left: 0px;
+				}
+				.left,
+				.right {
+					img {
+						max-width: 50px;
+						position: relative;
+						left: -8px;
+					}
+				}
+				.right {
+					img {
+						left: 8px;
+					}
+				}
+			}
+		}
+	}
+}

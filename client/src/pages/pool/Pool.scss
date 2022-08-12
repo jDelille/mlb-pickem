@@ -1,0 +1,136 @@
+@import '../../styles/mixins.scss';
+
+.pool-page {
+	padding: var(--padding);
+	height: fit-content;
+	min-height: 100vh;
+	padding-top: 2rem;
+	@include phone() {
+		padding-bottom: 4rem;
+		width: 100%;
+		overflow-x: scroll;
+	}
+	.pool-content {
+		width: 1448px;
+		margin: 0 auto;
+
+		@include laptop() {
+			width: 1248px;
+		}
+		@include macbook() {
+			max-width: 1100px;
+		}
+		@include md() {
+			max-width: 960px;
+		}
+	}
+	.pool-header {
+		height: 50px;
+		font-size: 1rem;
+		width: 69%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		position: relative;
+		margin-top: 2rem;
+		@include phone() {
+			height: 13vh;
+		}
+		h1 {
+			user-select: none;
+			-webkit-user-select: none; /* Safari */
+			-moz-user-select: none; /* Firefox */
+			-ms-user-select: none; /* IE10+/Edge */
+			width: 40%;
+			@include phone() {
+				width: 100%;
+			}
+		}
+		@include phone() {
+			width: 100%;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+		}
+		.legend {
+			height: 40%;
+			width: 75%;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			gap: 1rem;
+			@include phone() {
+				width: 100%;
+				justify-content: flex-start;
+			}
+			.legend-box {
+				width: fit-content;
+				position: relative;
+				display: flex;
+				gap: 0.5rem;
+				span {
+					width: 20px;
+					height: 20px;
+					border-radius: 4px;
+				}
+				.win {
+					background-color: #25a35a;
+				}
+				.lose {
+					background-color: #ff304f;
+				}
+				.none {
+					background-color: #727477;
+				}
+			}
+		}
+		.missed-pick {
+			color: #ff304f;
+			font-weight: 600;
+			font-size: 1rem;
+			display: none;
+			@include phone() {
+				display: flex;
+			}
+		}
+	}
+	.content {
+		display: flex;
+		gap: 1rem;
+		position: relative;
+		height: 100%;
+		// overflow-x: auto;
+		margin-top: 1rem;
+		.mobile-no-picks {
+			width: 100%;
+			left: 0;
+			padding: 1rem 0;
+			gap: 1rem;
+			display: none;
+			@include phone() {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				p {
+					font-size: 1rem;
+					font-weight: 600;
+				}
+			}
+
+			.btn {
+				margin: 0;
+				width: 130px;
+				height: 50px;
+			}
+		}
+		.users,
+		.users-reverse {
+			display: flex;
+			gap: 1rem;
+			width: 70%;
+		}
+		.users-reverse {
+			flex-direction: column-reverse;
+		}
+	}
+}

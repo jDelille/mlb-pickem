@@ -1,0 +1,101 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.show-picks-page {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	.show-picks-container {
+		display: flex;
+		position: relative;
+		border-radius: 10px;
+		padding: 1rem 1rem;
+		margin-top: 1rem;
+		font-family: 'Roboto', sans-serif;
+		flex-direction: column;
+		.entry-status {
+			width: 20%;
+		}
+		.show-picked {
+			display: flex;
+			width: 100%;
+			gap: 1rem;
+			overflow-x: auto;
+			.show-pick {
+				.show-logo {
+					width: 35px;
+					max-height: 35px;
+					margin: 0 0.3rem;
+				}
+			}
+		}
+		.delete-picks {
+			width: 20%;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			.delete-btn {
+				background-color: var(--danger-color);
+				padding: 10px 30px;
+				border: none;
+				width: 100px;
+				border-radius: 4px;
+				color: white;
+				font-size: 1rem;
+				font-weight: lighter;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				box-shadow: var(--box-shadow);
+				&:hover {
+					box-shadow: none;
+					transition: all 100ms ease-in-out;
+				}
+			}
+		}
+	}
+}
+
+// LAPTOP SIZE
+@include laptop {
+	.show-picked {
+	}
+}
+
+// PHONE SIZE
+@include phone {
+	.show-picked {
+		padding: 0rem 2rem;
+		.labels {
+			display: none;
+		}
+		.picks-container {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			padding: 1rem 1rem;
+
+			.entry-status {
+				width: 100%;
+			}
+			.picks {
+				width: 100%;
+				margin: 1rem 0;
+				overflow-x: scroll;
+				justify-content: flex-start;
+				img {
+					max-width: 40px;
+				}
+			}
+			.delete-picks {
+				width: 100%;
+				display: flex;
+				justify-content: flex-start;
+				button {
+					margin-right: auto;
+				}
+			}
+		}
+	}
+}

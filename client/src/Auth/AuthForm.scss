@@ -1,0 +1,135 @@
+@import '../styles/mixins.scss';
+
+.auth-form-register,
+.auth-form-login {
+	@include card();
+	width: auto;
+	height: auto;
+	border-radius: 12px;
+	box-shadow: var(--box-shadow);
+	padding: 3rem 3rem;
+	position: absolute;
+	top: 0%;
+	transform: translate(0, 25%);
+	font-family: 'Figtree', sans-serif;
+
+	z-index: 9999;
+
+	@include phone() {
+		height: 80vh;
+		bottom: 0;
+		padding: 1rem 2rem;
+		border-radius: 0;
+		z-index: 9999;
+		max-width: 960px;
+	}
+	.close-modal {
+		position: absolute;
+		right: 1rem;
+		top: 1rem;
+		cursor: pointer;
+	}
+
+	.hide {
+		display: none;
+	}
+
+	h2 {
+		margin-bottom: 1rem;
+		width: 100%;
+		margin: 0 auto;
+		font-size: 2rem;
+		text-align: center;
+		text-transform: uppercase;
+		font-family: var(---primaryFont);
+		padding-bottom: 2rem;
+		@include phone() {
+			padding-bottom: 1rem;
+		}
+	}
+
+	p {
+		padding-bottom: 2rem;
+		text-align: center;
+		@include phone() {
+			padding-bottom: 1rem;
+		}
+	}
+
+	.submit-btn {
+		@include btn();
+		height: 45px;
+		display: block;
+		position: relative;
+		margin-bottom: 1rem;
+		margin-top: 2rem;
+		background: #2f89fc;
+		border: none;
+		width: 100%;
+		font-size: 1.1rem;
+		&:hover {
+			background-color: darken($color: #2f89fc, $amount: 6);
+			cursor: pointer;
+		}
+		@include phone() {
+			margin-top: 1rem;
+		}
+	}
+
+	.login-link {
+		text-align: center;
+		position: relative;
+		top: 30px;
+	}
+
+	.form-inputs {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		@include phone() {
+			padding-top: 2rem;
+		}
+	}
+
+	.register-link {
+		text-align: center;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding-top: 2rem;
+		@include phone() {
+			padding-top: 4rem;
+		}
+		span {
+			color: #2f89fc;
+			text-decoration: underline;
+			cursor: pointer;
+		}
+	}
+}
+
+.auth-form-register {
+	transform: translate(0, 10%);
+}
+
+// PHONE SIZE
+@include phone {
+	.auth-form-register,
+	.auth-form-login {
+		width: 100vw;
+		position: absolute;
+		top: 0;
+		height: auto;
+		transform: none;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		h2 {
+			width: 100%;
+			font-size: 2rem;
+		}
+	}
+}
