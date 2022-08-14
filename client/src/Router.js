@@ -46,7 +46,7 @@ function Router() {
 			<BrowserRouter>
 				<ThemeProvider theme={theme ? lightTheme : darkTheme}>
 					<GlobalStyles />
-					<StyledApp className='App'>
+					<StyledApp className='App primary'>
 						<Navbar
 							toggle={toggle}
 							setToggle={setToggle}

@@ -26,12 +26,10 @@ function UserPicks({ item, sortedGames }) {
 		}
 	})
 
-	console.log(loserArray)
-
 	let count = 0;
 
 	return (
-		<div className='user current-user-picks'>
+		<div className='user current-user-picks third'>
 			<h2>{username}</h2>
 			<div className='picks'>
 				{item.picks.map((picks, index) => {

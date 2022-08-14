@@ -3,7 +3,14 @@ import { Link, NavLink } from 'react-router-dom';
 import UserContext from '../../context/UserContext';
 import Register from '../../Auth/Register';
 import Login from '../../Auth/Login';
+import { ImHome } from 'react-icons/im';
+import { IoBaseballOutline } from 'react-icons/io5';
+import { TbLogout, TbLogin } from 'react-icons/tb';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
+import { FiUserPlus } from 'react-icons/fi';
 import './Dropdown.scss';
+import axios from 'axios';
+import domain from '../../util/domain';
 
 const DropdownNav = ({
 	dropdown,
@@ -17,47 +24,78 @@ const DropdownNav = ({
 	setTheme,
 }) => {
 	const { user, logOut } = useContext(UserContext);
+	const [username, setUsername] = useState('');
+
+	async function getUser() {
+		if (user) {
+			const userRes = await axios.get(`${domain}/loggedIn/${user}`);
+			setUsername(userRes.data.username);
+		}
+	}
+	getUser();
 
 	return (
-		<div className={dropdown ? 'dropdown' : 'hide-dropdown'}>
+		<div
+			className={dropdown ? 'dropdown secondary' : 'hide-dropdown secondary'}>
+			{user && (
+				<p className='welcome'>
+					Welcome, <span>{username}</span>
+				</p>
+			)}
+
 			<ul className='dropdown-links'>
 				<li>
+					<span>
+						<ImHome />
+					</span>
 					<NavLink to='/'>Home</NavLink>
 				</li>
 				<li>
+					<span>
+						<IoBaseballOutline />
+					</span>
 					<NavLink to='/pool'>Pool</NavLink>
 				</li>
+				<li>
+					<span>
+						{!toggle && <MdLightMode />}
+						{toggle && <MdDarkMode />}
+					</span>
+					<p
+						className=''
+						onClick={() => {
+							setToggle(!toggle);
+							setTheme(!theme);
+						}}>
+						{' '}
+						{!toggle && 'Light Mode'}
+						{toggle && 'Dark Mode'}
+					</p>
+				</li>
 				{!user && (
-					<>
-						<button
-							onClick={() => setLogin(true)}
-							className='auth-btn login-btn'>
-							Login
-						</button>
-						<button
-							onClick={() => setRegister(true)}
-							className='auth-btn signup-btn'>
-							Sign up
-						</button>
-					</>
+					<div className='mobile-auth'>
+						<li>
+							<span>
+								<TbLogin />
+							</span>
+							<p onClick={() => setLogin(true)}>Login</p>
+						</li>
+						<li>
+							<span>
+								<FiUserPlus />
+							</span>
+							<p onClick={() => setRegister(true)}>Sign up</p>
+						</li>
+					</div>
 				)}
-
-				{!user ? (
-					<></>
-				) : (
-					<button onClick={logOut} className='logout-btn'>
-						Logout
-					</button>
+				{user && (
+					<li>
+						<span>
+							<TbLogout />
+						</span>
+						<p onClick={logOut}>Logout</p>
+					</li>
 				)}
-				<p className='ld-info'> Light / Dark Mode</p>
-				<div
-					className='pill'
-					onClick={() => {
-						setToggle(!toggle);
-						setTheme(!theme);
-					}}>
-					<div className={toggle ? 'toggle-switch' : 'toggle-switch-off'}></div>
-				</div>
 			</ul>
 		</div>
 	);

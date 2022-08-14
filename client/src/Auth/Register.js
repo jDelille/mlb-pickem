@@ -49,7 +49,7 @@ function Register({ setRegister, setLogin, forceOpen }) {
 	return (
 		<div className='register-page'>
 			<div className='register-overlay'></div>
-			<div className='auth-form-register'>
+			<div className='auth-form-register third'>
 				<p
 					className={forceOpen ? 'hide' : 'close-modal'}
 					onClick={() => setRegister(false)}>

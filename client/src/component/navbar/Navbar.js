@@ -4,11 +4,10 @@ import UserContext from '../../context/UserContext';
 import Register from '../../Auth/Register';
 import Login from '../../Auth/Login';
 import { BiMenuAltLeft } from 'react-icons/bi';
-
+import { FaUserCircle } from 'react-icons/fa';
 import './Navbar.scss';
 import DropdownNav from './DropdownNav';
-import axios from 'axios';
-import domain from '../../util/domain';
+import Settings from './settings/Settings';
 
 const Navbar = ({
 	toggle,
@@ -23,9 +22,10 @@ const Navbar = ({
 	const { user, logOut } = useContext(UserContext);
 
 	const [dropdown, setDropdown] = useState(false);
+	const [userSettings, setUserSettings] = useState(false);
 
 	return (
-		<nav className='navbar'>
+		<nav className='navbar secondary'>
 			<div className='nav-content'>
 				<div className='logo'>
 					<Link to='/'>
@@ -39,38 +39,39 @@ const Navbar = ({
 					<li>
 						<NavLink to='/pool'>Pool</NavLink>
 					</li>
-					{!user && (
-						<>
-							<button
-								onClick={() => setLogin(true)}
-								className='auth-btn login-btn'>
-								Login
-							</button>
-							<button
-								onClick={() => setRegister(true)}
-								className='auth-btn signup-btn'>
-								Sign up
-							</button>
-						</>
-					)}
-
-					{!user ? (
-						<></>
-					) : (
-						<button onClick={logOut} className='logout-btn'>
-							Logout
-						</button>
-					)}
-					<div
-						className='pill'
-						onClick={() => {
-							setToggle(!toggle);
-							setTheme(!theme);
-						}}>
-						<div
-							className={toggle ? 'toggle-switch' : 'toggle-switch-off'}></div>
-					</div>
 				</ul>
+				{!user && (
+					<div className='desktop-auth'>
+						<button
+							onClick={() => setLogin(true)}
+							className='auth-btn login-btn'>
+							Login
+						</button>
+						<button
+							onClick={() => setRegister(true)}
+							className='auth-btn signup-btn'>
+							Sign up
+						</button>
+					</div>
+				)}
+
+				<div
+					className='pill third'
+					onClick={() => {
+						setToggle(!toggle);
+						setTheme(!theme);
+					}}>
+					<div className={toggle ? 'toggle-switch' : 'toggle-switch-off'}></div>
+				</div>
+				{user && (
+					<div className='user-settings'>
+						<FaUserCircle
+							className='user-icon'
+							onClick={() => setUserSettings(!userSettings)}
+						/>
+						{userSettings && <Settings logOut={logOut} />}
+					</div>
+				)}
 				<div className='burger'>
 					<BiMenuAltLeft onClick={() => setDropdown(!dropdown)} />
 				</div>

@@ -1,113 +1,125 @@
-.top-game-component,
-.hide-top-game {
-	height: fit-content;
+@import '../../styles/mixins.scss';
+
+.top-game-component {
 	transition: all 200ms ease-in-out;
-	.show-more {
-		height: 50px;
-		display: flex;
-		align-items: center;
-		background-color: #0662c5;
-		position: absolute;
-		width: 100%;
-		bottom: -65px;
-		justify-content: center;
-		cursor: pointer;
-		color: white;
-		font-weight: 600;
+	height: fit-content;
+	width: 100%;
+	padding-bottom: 2rem;
+	@include phone() {
+		display: none;
 	}
-	.game {
-		width: 100%;
-		height: fit-content;
-		right: 0rem;
-		top: 1rem;
-		display: flex;
+	.predictions,
+	.hide-top-game {
 		position: relative;
-		flex-direction: column;
-		padding: 0 1rem;
-		border-bottom: 1px solid lightslategray;
-		&:nth-of-type(1) {
-			border-top-right-radius: 5px;
-			border-top-left-radius: 5px;
-		}
-		.header {
-			width: 100%;
-			padding: 1rem;
-			padding-bottom: 0;
-			color: lightslategray;
-			display: flex;
-			justify-content: space-between;
-			.time {
-			}
-			.matchup {
-				font-style: italic;
-				font-weight: 600;
-			}
-		}
-		.body {
+		height: fit-content;
+		.show-more {
+			height: 50px;
 			display: flex;
 			align-items: center;
-			.odds {
+			justify-content: center;
+			position: relative;
+			cursor: pointer;
+			color: #509beb;
+			border-radius: 4px;
+			font-weight: 600;
+		}
+		.game {
+			width: 100%;
+			height: fit-content;
+			right: 0rem;
+			display: flex;
+			position: relative;
+			flex-direction: column;
+			padding: 0 1rem;
+			border-top: 1px solid lightslategray;
+			border-bottom-right-radius: 5px;
+			border-bottom-left-radius: 5px;
+			&:nth-of-type(1) {
+				border-top-right-radius: 5px;
+				border-top-left-radius: 5px;
+
+				border-top: none;
+			}
+			.header {
 				width: 100%;
-				height: 100px;
+				padding: 1rem;
+				padding-bottom: 0;
+				color: lightslategray;
 				display: flex;
-				flex-direction: column;
-				justify-content: space-evenly;
-				.home,
-				.away {
-					display: flex;
-					justify-content: flex-end;
-					.bar {
-						width: 60%;
-						height: 4px;
-						margin-right: 1rem;
-						.percent {
-							background-color: #0662c5;
-							width: 50%;
-							height: 100%;
-						}
-						.loser-percent {
-							background-color: #ff304f;
-							width: 50%;
-							height: 100%;
-						}
-					}
-					.winner {
-						color: #0662c5;
-						font-weight: 600;
-					}
-					height: 30px;
-					display: flex;
-					align-items: center;
+				justify-content: space-between;
+				.time {
+				}
+				.matchup {
+					font-style: italic;
+					font-weight: 600;
 				}
 			}
-			.teams {
+			.body {
 				display: flex;
-				width: 30%;
-				position: relative;
-				height: 100%;
-				flex-direction: column;
-				padding: 1rem;
-				font-weight: 600;
-				.time {
-					color: lightslategray;
-					font-size: 0.9rem;
-				}
-				.home,
-				.away {
+				align-items: center;
+				.odds {
+					width: 100%;
+					height: 100px;
 					display: flex;
-					align-items: center;
-					gap: 1rem;
-					height: 50px;
-					img {
-						max-width: 20px;
+					flex-direction: column;
+					justify-content: space-evenly;
+					.home,
+					.away {
+						display: flex;
+						justify-content: flex-end;
+						.bar {
+							width: 60%;
+							height: 4px;
+							margin-right: 1rem;
+							.percent {
+								background-color: #509beb;
+								width: 50%;
+								height: 100%;
+							}
+							.tied {
+								background-color: #e57423;
+								width: 50%;
+								height: 100%;
+							}
+							.loser-percent {
+								background-color: #ff304f;
+								width: 50%;
+								height: 100%;
+							}
+						}
+						.winner {
+							color: #509beb;
+							font-weight: 600;
+						}
+						height: 30px;
+						display: flex;
+						align-items: center;
+					}
+				}
+				.teams {
+					display: flex;
+					width: 30%;
+					position: relative;
+					height: 100%;
+					flex-direction: column;
+					padding: 1rem;
+					font-weight: 600;
+					.time {
+						color: lightslategray;
+						font-size: 0.9rem;
+					}
+					.home,
+					.away {
+						display: flex;
+						align-items: center;
+						gap: 1rem;
+						height: 50px;
+						img {
+							max-width: 20px;
+						}
 					}
 				}
 			}
 		}
 	}
-}
-
-.hide-top-game {
-	max-height: 400px;
-	overflow: hidden;
 }

@@ -9,7 +9,6 @@
 	position: relative;
 	margin: 0 auto;
 	width: 1448px;
-
 	@include laptop() {
 		width: 1248px;
 	}
@@ -18,7 +17,7 @@
 	}
 
 	@include phone() {
-		width: 1200px;
+		width: auto;
 		margin: 0;
 	}
 
@@ -37,7 +36,6 @@
 	font-size: 1rem;
 	text-transform: uppercase;
 	flex-direction: column;
-	// border-right: var(--border);
 	font-weight: bold;
 	z-index: 9998;
 }
@@ -57,6 +55,7 @@
 		gap: 0.5rem;
 		min-width: 160px;
 		padding: 0.2rem 1rem;
+		// display: none;
 
 		max-width: 160px;
 		.status {
@@ -105,7 +104,6 @@
 	justify-content: center;
 	font-size: 1.3rem;
 	font-family: var(--secondaryFont);
-	// border-left: 1px solid #3e3f42;
 	justify-content: center;
 	padding: 0 1rem;
 	gap: 0.65rem;
@@ -124,8 +122,8 @@
 		font-size: 0.9rem;
 		&:hover {
 			cursor: pointer;
-			color: #0662c5;
-			border: 1px solid #0662c5;
+			color: #509beb;
+			border: 1px solid #509beb;
 		}
 	}
 }

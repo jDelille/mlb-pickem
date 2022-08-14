@@ -43,8 +43,8 @@ mongoose.connect(
 	}
 );
 
-let sheduleDate = 20220811;
-let num = 127;
+let sheduleDate = 20220813;
+let num = 129;
 
 // schedule + highlight clips
 app.get('/schedule', async (req, res) => {

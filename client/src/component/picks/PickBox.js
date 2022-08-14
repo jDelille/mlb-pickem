@@ -8,20 +8,19 @@ import './PickBox.scss';
 
 const PickBox = ({ data, increment, availableGames }) => {
 	// team info
-	let homeTeamName = data.competitions[0].competitors[0].team.displayName;
-	let awayTeamName = data.competitions[0].competitors[1].team.displayName;
+	let homeTeamName = data?.competitions[0].competitors[0].team.displayName;
+	let awayTeamName = data?.competitions[0].competitors[1].team.displayName;
 
-	let homeTeamAbbr = data.competitions[0].competitors[0].team.abbreviation;
-	let awayTeamAbbr = data.competitions[0].competitors[1].team.abbreviation;
+	let homeTeamAbbr = data?.competitions[0].competitors[0].team.abbreviation;
+	let awayTeamAbbr = data?.competitions[0].competitors[1].team.abbreviation;
 
 	const { shortDetail } = data.status.type;
 
-	console.log(data);
 
 	return (
 		<div className='game-box'>
 			{data.status.type.description === 'Scheduled' && (
-				<div className='game'>
+				<div className='game third'>
 					<div className='top'>
 						{/* home team */}
 						<label className='box'>
@@ -73,26 +72,15 @@ const PickBox = ({ data, increment, availableGames }) => {
 					</div>
 					<div className='middle'>
 						<div className='box'>
-							<p>{data.competitions[0].competitors[0].homeAway}</p>
+							<p>{data.competitions[0].competitors[0].team.abbreviation}</p>
 						</div>
 						<div className='space'></div>
 						<div className='box'>
-							<p>{data.competitions[0].competitors[1].homeAway}</p>
+							<p>{data.competitions[0].competitors[1].team.abbreviation}</p>
 						</div>
 					</div>
 					<div className='pitchers'>
-						<p>
-							Pitchers:{' '}
-							{
-								data.competitions[0].competitors[0].probables[0].athlete
-									.fullName
-							}{' '}
-							vs{' '}
-							{
-								data.competitions[0].competitors[1].probables[0].athlete
-									.fullName
-							}
-						</p>
+						<p>{data.name}</p>
 					</div>
 				</div>
 			)}

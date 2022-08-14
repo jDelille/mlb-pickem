@@ -149,16 +149,6 @@ router.put('/:id', async (req, res) => {
 		const { username } = req.body;
 		const userId = req.params.id;
 
-		// validation
-
-		// if (!description && !code) {
-		//   return res
-		//     .status(400)
-		//     .json({
-		//       errorMessage: "You need to enter a description or some code.",
-		//     });
-		// }
-
 		if (!userId)
 			return res.status(400).json({
 				errorMessage:
@@ -175,9 +165,6 @@ router.put('/:id', async (req, res) => {
 			return res.status(401).json({ errorMessage: 'Unauthorized.' });
 
 		originalUser.username = username;
-		// originalUser.description = description;
-		// originalUser.code = code;
-		// originalUser.category = category;
 
 		const savedUser = await originalUser.save();
 

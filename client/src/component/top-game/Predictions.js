@@ -1,10 +1,18 @@
 import React from 'react';
 import moment from 'moment';
+import './Predictions.scss';
 
 const Predictions = ({ game }) => {
+	let homePercent = Math.round(
+		game.BettingData.draftkings.HomeLineWinPct * 100
+	);
+	let awayPercent = Math.round(
+		game.BettingData.draftkings.AwayLineWinPct * 100
+	);
+
 	if (game.BettingData.draftkings.HomeLineWinPct)
 		return (
-			<div className='game'>
+			<div className='game third'>
 				<div className='header'>
 					<div className='time'>
 						{moment(game.MatchData.Date).format('  h:mm a')}
@@ -36,54 +44,36 @@ const Predictions = ({ game }) => {
 							<div className='bar'>
 								<div
 									className={
-										Math.round(
-											game.BettingData.draftkings.HomeLineWinPct * 100
-										) > 50
+										homePercent > 50
 											? 'percent'
+											: homePercent === 50
+											? 'tied'
 											: 'loser-percent'
 									}
 									style={{
-										width:
-											Math.round(
-												game.BettingData.draftkings.HomeLineWinPct * 100
-											) * 2,
+										width: homePercent * 2,
 									}}></div>
 							</div>
-							<p
-								className={
-									Math.round(game.BettingData.draftkings.HomeLineWinPct * 100) >
-									50
-										? 'winner'
-										: 'loser'
-								}>
-								{Math.round(game.BettingData.draftkings.HomeLineWinPct * 100)}%
+							<p className={homePercent > 50 ? 'winner' : 'loser'}>
+								{homePercent}%
 							</p>
 						</div>
 						<div className='away'>
 							<div className='bar'>
 								<div
 									className={
-										Math.round(
-											game.BettingData.draftkings.AwayLineWinPct * 100
-										) > 50
+										awayPercent > 50
 											? 'percent'
+											: awayPercent === 50
+											? 'tied'
 											: 'loser-percent'
 									}
 									style={{
-										width:
-											Math.round(
-												game.BettingData.draftkings.AwayLineWinPct * 100
-											) * 2,
+										width: awayPercent * 2,
 									}}></div>
 							</div>
-							<p
-								className={
-									Math.round(game.BettingData.draftkings.AwayLineWinPct * 100) >
-									50
-										? 'winner'
-										: 'loser'
-								}>
-								{Math.round(game.BettingData.draftkings.AwayLineWinPct * 100)}%
+							<p className={awayPercent > 50 ? 'winner' : 'loser'}>
+								{awayPercent}%
 							</p>
 						</div>
 					</div>

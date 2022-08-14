@@ -43,7 +43,7 @@ function Login({ setLogin, setRegister, forceOpen }) {
 		<div className='login-page'>
 			<div className='register-overlay'></div>
 
-			<div className='auth-form-login'>
+			<div className='auth-form-login third'>
 				<p
 					className={forceOpen ? 'hide' : 'close-modal'}
 					onClick={() => setLogin(false)}>

@@ -9,7 +9,7 @@ const Home = ({ register, login, setRegister, setLogin }) => {
 	const { user } = useContext(UserContext);
 
 	return (
-		<div className='homepage'>
+		<div className='homepage one'>
 			<div className='home-content'>
 				<div className='text'>
 					<h1> MLB DAILY PICKEM POOL </h1>
@@ -29,7 +29,7 @@ const Home = ({ register, login, setRegister, setLogin }) => {
 					</div>
 				</div>
 				<div className='images'>
-					<div className='bar'>
+					<div className='bar secondary'>
 						<div className='left'>
 							<img src='../mlb-icons/NYM.svg' alt='' />
 							<p className='name'>Mets</p>
@@ -45,7 +45,7 @@ const Home = ({ register, login, setRegister, setLogin }) => {
 							<img src='../mlb-icons/LAD.svg' alt='' />
 						</div>
 					</div>
-					<div className='bar bar-2'>
+					<div className='bar bar-2 secondary'>
 						<div className='left'>
 							<img src='../mlb-icons/ARI.svg' alt='' />
 							<p className='name'>Diamondbacks</p>

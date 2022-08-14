@@ -4,16 +4,28 @@
 .hide-dropdown {
 	position: absolute;
 	right: -2rem;
-	width: 100%;
-	height: 500px;
-	top: 53px;
+	width: 90%;
+	height: fit-content;
+	top: 54px;
 	display: none;
 	transition: all 200ms ease-in-out;
 	transform: translateX(0);
 	padding: 2rem 2.5rem;
+	padding-bottom: 2.5rem;
 	display: none;
+	flex-direction: column;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 	@include phone() {
 		display: flex;
+	}
+	.welcome {
+		height: 40px;
+		font-weight: 600;
+		font-size: 1.1rem;
+
+		span {
+			color: #207cdf;
+		}
 	}
 
 	ul {
@@ -24,6 +36,25 @@
 		width: 100%;
 		position: relative;
 		gap: 1.5rem;
+		.mobile-auth {
+			display: none;
+			@include phone() {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				font-size: 1.1rem;
+				font-weight: 600;
+				gap: 1.5rem;
+				li {
+					display: flex;
+					span {
+						display: flex;
+						align-items: center;
+						font-size: 1.2rem;
+					}
+				}
+			}
+		}
 		.ld-info {
 			color: gray;
 			margin-top: 10px;
@@ -47,16 +78,26 @@
 			width: 100%;
 			display: flex;
 			align-items: center;
-			a {
+			gap: 0.5rem;
+
+			a,
+			p {
 				text-decoration: none;
 				background-color: none;
-				font-size: 1.3rem;
+				font-size: 1.1rem;
+				font-weight: 600;
+				cursor: pointer;
 				&:hover {
 					color: #207cdf;
 				}
 			}
 			a.active {
 				background-color: none;
+			}
+			span {
+				display: flex;
+				align-items: center;
+				font-size: 1.2rem;
 			}
 		}
 		.auth-btn,

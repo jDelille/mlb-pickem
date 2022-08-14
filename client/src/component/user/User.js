@@ -15,8 +15,6 @@ const User = () => {
 	}
 	getUser();
 
-	console.log(username);
-
 	return (
 		<div className='user-component'>
 			<div className='header'>

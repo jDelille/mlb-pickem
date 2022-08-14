@@ -38,30 +38,9 @@
 		align-items: center;
 		gap: 1rem;
 		width: 100%;
-		justify-content: flex-end;
-
+		padding-left: 2rem;
 		@include phone() {
 			display: none;
-		}
-		.login-btn,
-		.logout-btn {
-			background: none;
-			border: none;
-			font-size: 1rem;
-			padding: 1rem;
-			cursor: pointer;
-			color: #0662c5;
-		}
-		.signup-btn {
-			background-color: #0662c5;
-			color: white;
-			padding: 0.5rem 1rem;
-			border-radius: 5px;
-			border: none;
-			&:hover {
-				background-color: darken($color: #0662c5, $amount: 6);
-				cursor: pointer;
-			}
 		}
 		li {
 			list-style-type: none;
@@ -70,30 +49,82 @@
 				padding: 0.75rem 1rem;
 				border-radius: 5px;
 				box-shadow: none;
+				font-weight: 600;
 			}
 			a.active {
 			}
 		}
-
-		.pill {
-			min-width: 56px;
-			height: 27px;
-			border-radius: 25px;
-			display: flex;
-			align-items: center;
+	}
+	.user-settings {
+		position: relative;
+		height: 65px;
+		display: flex;
+		align-items: center;
+		@include phone() {
+			display: none;
+		}
+		.user-icon {
+			font-size: 1.5rem;
 			cursor: pointer;
-			padding: 0 0.25rem;
-			.toggle-switch,
-			.toggle-switch-off {
-				background-color: #0662c5;
-				height: 20px;
-				width: 20px;
-				border-radius: 50%;
-				transition: all 200ms ease-in-out;
-			}
-			.toggle-switch-off {
-				transform: translate(28px);
-			}
+		}
+	}
+	.desktop-auth {
+		display: flex;
+		align-items: center;
+		@include phone() {
+			display: none;
+		}
+	}
+	.login-btn,
+	.logout-btn {
+		background: none;
+		border: none;
+		font-size: 1rem;
+		padding: 1rem;
+		cursor: pointer;
+		color: #509beb;
+		font-weight: 600;
+	}
+	.signup-btn {
+		background-color: #509beb;
+		color: white;
+		border-radius: 5px;
+		display: flex;
+		align-items: center;
+		border: none;
+		width: 110px;
+		padding: 0.5rem 1rem;
+		justify-content: center;
+		font-size: 1rem;
+		margin-right: 1rem;
+
+		&:hover {
+			background-color: darken($color: #509beb, $amount: 6);
+			cursor: pointer;
+		}
+	}
+	.pill {
+		min-width: 52px;
+		height: 23px;
+		border-radius: 25px;
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		padding: 0 0.25rem;
+		margin-right: 1rem;
+		@include phone() {
+			display: none;
+		}
+		.toggle-switch,
+		.toggle-switch-off {
+			background-color: #509beb;
+			height: 15px;
+			width: 15px;
+			border-radius: 50%;
+			transition: all 200ms ease-in-out;
+		}
+		.toggle-switch-off {
+			transform: translate(29px);
 		}
 	}
 	.burger {

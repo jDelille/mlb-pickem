@@ -3,13 +3,8 @@
 .pool-page {
 	padding: var(--padding);
 	height: fit-content;
-	min-height: 100vh;
+	min-height: 120vh;
 	padding-top: 2rem;
-	@include phone() {
-		padding-bottom: 4rem;
-		width: 100%;
-		overflow-x: scroll;
-	}
 	.pool-content {
 		width: 1448px;
 		margin: 0 auto;
@@ -22,6 +17,11 @@
 		}
 		@include md() {
 			max-width: 960px;
+		}
+		@include phone() {
+			width: auto;
+			margin: 0;
+			padding: 0;
 		}
 	}
 	.pool-header {
@@ -68,9 +68,10 @@
 				position: relative;
 				display: flex;
 				gap: 0.5rem;
+				align-items: center;
 				span {
-					width: 20px;
-					height: 20px;
+					width: 15px;
+					height: 15px;
 					border-radius: 4px;
 				}
 				.win {
@@ -99,8 +100,10 @@
 		gap: 1rem;
 		position: relative;
 		height: 100%;
-		// overflow-x: auto;
 		margin-top: 1rem;
+		@include phone() {
+			overflow-x: scroll;
+		}
 		.mobile-no-picks {
 			width: 100%;
 			left: 0;

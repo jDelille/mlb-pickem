@@ -53,12 +53,6 @@ const Pool = ({ sortedGames, setLogin }) => {
 			<div className='pool-content'>
 				<div className='pool-header'>
 					<h1> Today's Picks </h1>
-					{/* <p onClick={() => setToggleSort(!toggleSort)}>
-					Sort
-					<span>
-						<AiFillCaretDown />
-					</span>
-				</p> */}
 					<div className='legend'>
 						<div className='legend-box '>
 							<span className='box win'></span>
@@ -78,7 +72,6 @@ const Pool = ({ sortedGames, setLogin }) => {
 							<p>You have missed the pick deadline today.</p>
 						</div>
 					)}
-					{!!toggleSort && <ToggleSort setSort={setSort} />}
 				</div>
 				<div className='content'>
 					<div className='users'>
@@ -117,7 +110,7 @@ const Pool = ({ sortedGames, setLogin }) => {
 							})}
 
 						{expertPicks.map((item, i) => {
-							return <UserPick item={item} key={i} />;
+							if (i < 16) return <UserPick item={item} key={i} />;
 						})}
 					</div>
 					<Picks

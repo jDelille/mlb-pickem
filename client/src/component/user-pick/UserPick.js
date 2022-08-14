@@ -43,7 +43,7 @@ const UserPick = ({ user, item }) => {
 	let count = 0;
 
 	return (
-		<div className='user'>
+		<div className='user third'>
 			{error && <p>{error}</p>}
 			<h2>{item.username}</h2>
 			<div className='picks'>

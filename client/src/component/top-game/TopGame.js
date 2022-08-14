@@ -24,21 +24,30 @@ const TopGame = () => {
 	const [showMore, setShowMore] = useState(false);
 
 	return (
-		<div className={showMore ? 'top-game-component' : 'hide-top-game'}>
-			{topGame.map((game) => {
-				return <Predictions game={game} />;
-			})}
-			{showMore && (
-				<p className='show-more' onClick={() => setShowMore(!showMore)}>
-					Show Less
-				</p>
-			)}
+		<div className='top-game-component'>
+			<div className='predictions'>
+				{!showMore &&
+					topGame.map((game, index) => {
+						if (index < 2) return <Predictions game={game} />;
+					})}
 
-			{!showMore && (
-				<p className='show-more' onClick={() => setShowMore(!showMore)}>
-					Show All Games
-				</p>
-			)}
+				{showMore &&
+					topGame.map((game, index) => {
+						return <Predictions game={game} />;
+					})}
+
+				{showMore && (
+					<div className='show-more' onClick={() => setShowMore(!showMore)}>
+						Show Less
+					</div>
+				)}
+
+				{!showMore && (
+					<div className='show-more' onClick={() => setShowMore(!showMore)}>
+						Show All Games
+					</div>
+				)}
+			</div>
 		</div>
 	);
 };

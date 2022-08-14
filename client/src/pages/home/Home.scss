@@ -2,6 +2,8 @@
 
 .homepage {
 	height: 100vh;
+	max-height: 100%;
+	position: relative;
 	padding: var(--padding);
 	@include phone() {
 		overflow-x: hidden;

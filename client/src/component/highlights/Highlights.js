@@ -30,17 +30,13 @@ const Highlights = () => {
 	});
 
 	return (
-		<div className='highlights'>
+		<div className='highlights third'>
 			<div className='header'>
 				<p> Highlights </p>
 				<span> Click and drag to scroll</span>
 			</div>
 
-			<Swiper
-				spaceBetween={50}
-				slidesPerView={1}
-				onSlideChange={() => console.log('slide change')}
-				onSwiper={(swiper) => console.log(swiper)}>
+			<Swiper spaceBetween={50} slidesPerView={1}>
 				{data.map((highlight, index) => {
 					return (
 						<>

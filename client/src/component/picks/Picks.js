@@ -83,21 +83,18 @@ const Picks = ({ sortedGames, gameCount, setLogin }) => {
 			availableGames++;
 		}
 	}
-
-	console.log(availableGames);
-
 	return (
 		<div className='picks-component'>
 			{user && <User />}
 			{gameCount > 0 &&
 				(!picks[0]?.picks ? (
 					<div>
-						<div className='picks-info'>
+						<div className='picks-info third'>
 							<p>
 								Your picks: {selected} / {availableGames}
 							</p>
 						</div>
-						<div className='make-picks'>
+						<div className='make-picks third'>
 							<MakePicks
 								addPicks={addPicks}
 								pick={pick}
@@ -112,7 +109,7 @@ const Picks = ({ sortedGames, gameCount, setLogin }) => {
 						</div>
 					</div>
 				) : (
-					<div className='submitted-picks'>
+					<div className='submitted-picks third'>
 						<p>You have successfully entered your picks.</p>
 						<div className='btn-container'>
 							{/* <button className='btn' onClick={() => setPick([])}>
@@ -126,7 +123,7 @@ const Picks = ({ sortedGames, gameCount, setLogin }) => {
 				))}
 
 			{gameCount === 0 && user && (
-				<div className='missed-picks'>
+				<div className='missed-picks third'>
 					<p> You have missed the pick deadline today.</p>
 				</div>
 			)}

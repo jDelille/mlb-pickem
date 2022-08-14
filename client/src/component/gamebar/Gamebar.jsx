@@ -38,11 +38,11 @@ const Gamebar = ({ sortedGames }) => {
 
  return (
   <div className='top-gamebar'>
-   <div className="date">
+   <div className="date primary">
     <p> {gameMonth} </p>
     <p> {gameDay} </p>
    </div>
-   <div className='gamebar' id='container'>
+   <div className='gamebar primary' id='container'>
     {sortedGames.map((item, index) => {
      let home = item.competitions[0].competitors[0].team;
      let away = item.competitions[0].competitors[1].team;
@@ -70,7 +70,7 @@ const Gamebar = ({ sortedGames }) => {
      </div>;
     })}
    </div>
-   <div className="scroll-controls">
+   <div className="scroll-controls primary">
     <div className="left" id='slide' onClick={scrollLeft} >
      <AiOutlineLeft />
     </div>
