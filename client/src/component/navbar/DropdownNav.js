@@ -13,13 +13,12 @@ import axios from 'axios';
 import domain from '../../util/domain';
 
 const DropdownNav = ({
+	setDropdown,
 	dropdown,
 	toggle,
 	setToggle,
 	setRegister,
 	setLogin,
-	register,
-	login,
 	theme,
 	setTheme,
 }) => {
@@ -48,13 +47,17 @@ const DropdownNav = ({
 					<span>
 						<ImHome />
 					</span>
-					<NavLink to='/'>Home</NavLink>
+					<NavLink to='/' onClick={() => setDropdown(false)}>
+						Home
+					</NavLink>
 				</li>
 				<li>
 					<span>
 						<IoBaseballOutline />
 					</span>
-					<NavLink to='/pool'>Pool</NavLink>
+					<NavLink to='/pool' onClick={() => setDropdown(false)}>
+						Pool
+					</NavLink>
 				</li>
 				<li>
 					<span>

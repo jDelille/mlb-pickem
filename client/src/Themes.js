@@ -27,6 +27,9 @@ export const GlobalStyles = createGlobalStyle`
 .game-box {
  // border-right: ${(props) => props.theme.border};
 }
+
+
+
 .secondary,
 .links li a
 {

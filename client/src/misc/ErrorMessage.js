@@ -4,7 +4,7 @@ import './ErrorMessage.scss';
 function ErrorMessage({ message, clear }) {
 	return (
 		<div className='error-message'>
-			<p>{message}</p>
+			<h4 className='message'>{message}</h4>
 			<button onClick={clear} className='clear-btn'>
 				Clear
 			</button>

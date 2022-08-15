@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Gamebar from './component/gamebar/Gamebar';
 import Navbar from './component/navbar/Navbar';
 import Pool from './pages/pool/Pool';
 import domain from './util/domain';
@@ -19,7 +18,7 @@ const StyledApp = styled.div``;
 axios.defaults.withCredentials = true;
 
 function Router() {
-	const [theme, setTheme] = useState(false);
+	const [theme, setTheme] = useState(true);
 
 	const [data, setData] = useState([]);
 	const [toggle, setToggle] = useState(false);

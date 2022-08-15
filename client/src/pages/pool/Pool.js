@@ -12,6 +12,7 @@ import Popup from '../../component/popup/Popup';
 import { useContext } from 'react';
 import UserContext from '../../context/UserContext';
 import UserPick from '../../component/user-pick/UserPick';
+import { AiFillCloseCircle } from 'react-icons/ai';
 
 const Pool = ({ sortedGames, setLogin }) => {
 	const [poolData, setPoolData] = useState([]);
@@ -47,6 +48,8 @@ const Pool = ({ sortedGames, setLogin }) => {
 		}
 	}
 
+	const [closeMessage, setCloseMessage] = useState(false);
+
 	return (
 		<div className='pool-page'>
 			<Gamebar sortedGames={sortedGames} />
@@ -67,9 +70,15 @@ const Pool = ({ sortedGames, setLogin }) => {
 							<p> No pick </p>
 						</div>
 					</div>
-					{gameCount === 0 && (
+					{gameCount === 0 && !closeMessage && (
 						<div className='missed-pick'>
 							<p>You have missed the pick deadline today.</p>
+							<span>
+								<AiFillCloseCircle
+									className='icon'
+									onClick={() => setCloseMessage(true)}
+								/>
+							</span>
 						</div>
 					)}
 				</div>

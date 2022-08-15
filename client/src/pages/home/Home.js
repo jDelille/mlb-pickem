@@ -18,7 +18,7 @@ const Home = ({ register, login, setRegister, setLogin }) => {
 					<div className='btn-container'>
 						{!user && (
 							<button className='btn' onClick={() => setRegister(true)}>
-								Get Started
+								Create an account
 							</button>
 						)}
 						{user && (

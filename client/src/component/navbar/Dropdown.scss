@@ -3,20 +3,21 @@
 .dropdown,
 .hide-dropdown {
 	position: absolute;
-	right: -2rem;
-	width: 90%;
+	width: 100%;
+
 	height: fit-content;
-	top: 54px;
-	display: none;
+	top: 48px;
 	transition: all 200ms ease-in-out;
 	transform: translateX(0);
-	padding: 2rem 2.5rem;
+	padding: 2rem 1.4rem;
 	padding-bottom: 2.5rem;
 	display: none;
 	flex-direction: column;
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 	@include phone() {
 		display: flex;
+		width: 100vw;
+		left: -1rem;
 	}
 	.welcome {
 		height: 40px;
@@ -120,5 +121,5 @@
 }
 
 .hide-dropdown {
-	transform: translateX(100%);
+	transform: translateX(110%);
 }

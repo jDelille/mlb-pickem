@@ -76,13 +76,12 @@ const Navbar = ({
 					<BiMenuAltLeft onClick={() => setDropdown(!dropdown)} />
 				</div>
 				<DropdownNav
+					setDropdown={setDropdown}
 					dropdown={dropdown}
 					toggle={toggle}
 					setToggle={setToggle}
 					setRegister={setRegister}
 					setLogin={setLogin}
-					register={register}
-					login={login}
 					setTheme={setTheme}
 					theme={theme}
 				/>

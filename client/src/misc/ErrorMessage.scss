@@ -1,17 +1,29 @@
 .error-message {
-	color: #9d1c24;
+	color: #e24141;
+	height: 50px;
 	width: 100%;
-	margin: 0 auto;
 	display: flex;
 	background-color: #f8d7da;
 	border-radius: 4px;
-	margin-top: 1rem;
-	padding: 0.7rem;
-	p {
+	position: relative;
+	padding: 1rem;
+	margin: 1rem 0;
+	.message {
 		width: 100%;
+		display: flex;
+		align-items: center;
+		font-weight: lighter;
+		height: 100%;
 	}
 	.clear-btn {
 		margin-left: auto;
-		width: auto;
+		background: none;
+		border: none;
+		color: #e24141;
+		height: 100%;
+		cursor: pointer;
+		&:hover {
+			font-weight: 600;
+		}
 	}
 }

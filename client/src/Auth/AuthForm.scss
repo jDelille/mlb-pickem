@@ -3,18 +3,16 @@
 .auth-form-register,
 .auth-form-login {
 	@include card();
-	width: auto;
-	height: auto;
-	border-radius: 12px;
+	min-width: 400px;
+	width: fit-content;
+	height: fit-content;
 	box-shadow: var(--box-shadow);
 	padding: 3rem 3rem;
 	position: absolute;
 	top: 0%;
 	transform: translate(0, 25%);
 	font-family: 'Figtree', sans-serif;
-
 	z-index: 9999;
-
 	@include phone() {
 		height: 80vh;
 		bottom: 0;

@@ -5,12 +5,12 @@
 	height: fit-content;
 	min-height: 120vh;
 	padding-top: 2rem;
+
 	.pool-content {
-		width: 1448px;
 		margin: 0 auto;
 
 		@include laptop() {
-			width: 1248px;
+			width: 1304px;
 		}
 		@include macbook() {
 			max-width: 1100px;
@@ -26,15 +26,16 @@
 	}
 	.pool-header {
 		height: 50px;
-		font-size: 1rem;
+		font-size: 0.9rem;
 		width: 69%;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		position: relative;
-		margin-top: 2rem;
+		margin-top: 1rem;
 		@include phone() {
-			height: 13vh;
+			height: fit-content;
+			padding-bottom: 1rem;
 		}
 		h1 {
 			user-select: none;
@@ -44,6 +45,7 @@
 			width: 40%;
 			@include phone() {
 				width: 100%;
+				text-align: center;
 			}
 		}
 		@include phone() {
@@ -61,7 +63,7 @@
 			gap: 1rem;
 			@include phone() {
 				width: 100%;
-				justify-content: flex-start;
+				justify-content: center;
 			}
 			.legend-box {
 				width: fit-content;
@@ -69,16 +71,19 @@
 				display: flex;
 				gap: 0.5rem;
 				align-items: center;
+				@include phone() {
+					margin: 1rem 0;
+				}
 				span {
 					width: 15px;
 					height: 15px;
-					border-radius: 4px;
+					border-radius: 2px;
 				}
 				.win {
 					background-color: #25a35a;
 				}
 				.lose {
-					background-color: #ff304f;
+					background-color: #e24141;
 				}
 				.none {
 					background-color: #727477;
@@ -86,12 +91,27 @@
 			}
 		}
 		.missed-pick {
-			color: #ff304f;
+			color: #e24141;
 			font-weight: 600;
 			font-size: 1rem;
 			display: none;
 			@include phone() {
 				display: flex;
+				background-color: #f8d7da;
+				padding: 1rem;
+				border-radius: 4px;
+				margin-bottom: 2rem;
+				font-weight: lighter;
+				width: 100%;
+				position: relative;
+				span {
+					.icon {
+						position: absolute;
+						right: 0.5rem;
+						top: 0.25rem;
+						cursor: pointer;
+					}
+				}
 			}
 		}
 	}
