@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import User from '../../component/user-pick/UserPick';
 import UserPicks from './UserPicks';
 
-import './Pool.scss';
 import axios from 'axios';
 import domain from '../../util/domain';
 import Picks from '../../component/picks/Picks';
-import ToggleSort from '../../component/toggle-sort/ToggleSort';
 import Gamebar from '../../component/gamebar/Gamebar';
 import Popup from '../../component/popup/Popup';
 import { useContext } from 'react';
@@ -14,10 +11,14 @@ import UserContext from '../../context/UserContext';
 import UserPick from '../../component/user-pick/UserPick';
 import { AiFillCloseCircle } from 'react-icons/ai';
 
+import './Pool.scss';
+
 const Pool = ({ sortedGames, setLogin }) => {
 	const [poolData, setPoolData] = useState([]);
-	const [toggleSort, setToggleSort] = useState(false);
 	const [expertPicks, setExpertPicks] = useState([]);
+	const [togglePopup, setTogglePopup] = useState(false);
+	const [closeMessage, setCloseMessage] = useState(false);
+
 	const { user } = useContext(UserContext);
 
 	async function getAllPicks() {
@@ -31,24 +32,49 @@ const Pool = ({ sortedGames, setLogin }) => {
 			.then((data) => {
 				setExpertPicks(data.picks);
 			});
-	}, []);
-
-	useEffect(() => {
 		getAllPicks();
 	}, []);
 
-	const [sort, setSort] = useState(false);
-	const [togglePopup, setTogglePopup] = useState(false);
-
 	let gameCount = 0;
-
 	for (let i = 0; i < sortedGames.length; i++) {
 		if (sortedGames[i].status.type.description === 'Scheduled') {
 			gameCount++;
 		}
 	}
 
-	const [closeMessage, setCloseMessage] = useState(false);
+	// error message cookie
+	const setCookie = (cookieKey, cookieValue, expirationDays) => {
+		let expiryDate = '';
+
+		if (expirationDays) {
+			const date = new Date();
+
+			date.setTime(
+				`${date.getTime()}${expirationDays || 30 * 24 * 60 * 60 * 1000}`
+			);
+			expiryDate = `; expiryDate=" ${date.toUTCString()}`;
+		}
+		document.cookie = `${cookieKey}=${cookieValue || ''}${expiryDate}; path=/`;
+	};
+
+	const getCookie = (cookieKey) => {
+		let cookieName = `${cookieKey}=`;
+		let cookieArray = document.cookie.split(';');
+
+		for (let cookie of cookieArray) {
+			while (cookie.charAt(0) == ' ') {
+				cookie = cookie.substring(1, cookie.length);
+			}
+
+			if (cookie.indexOf(cookieName) == 0) {
+				return cookie.substring(cookieName.length, cookie.length);
+			}
+		}
+	};
+
+	let hideMessage = getCookie('hide_message');
+
+	console.log(hideMessage);
 
 	return (
 		<div className='pool-page'>
@@ -70,13 +96,16 @@ const Pool = ({ sortedGames, setLogin }) => {
 							<p> No pick </p>
 						</div>
 					</div>
-					{gameCount === 0 && !closeMessage && (
+					{gameCount === 0 && !closeMessage && !hideMessage && (
 						<div className='missed-pick'>
 							<p>You have missed the pick deadline today.</p>
 							<span>
 								<AiFillCloseCircle
 									className='icon'
-									onClick={() => setCloseMessage(true)}
+									onClick={() => {
+										setCloseMessage(true);
+										setCookie('hide_message', true, 1);
+									}}
 								/>
 							</span>
 						</div>
